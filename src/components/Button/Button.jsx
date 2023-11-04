@@ -1,43 +1,38 @@
 import React from 'react';
 
-const Button = ({ variant, label, color, textColor, size }) => {
-  // Define default styles and override them based on the props
+/*** */
+
+export default function Button ({ children, variant = 'solid', type = 'primary', isDisabled = false }) {
   const styles = {
     common: `
       inline-flex justify-center items-center 
-      rounded-3xl shadow-lc backdrop-blur-2xl gap-2.5
-      font-bold text-base leading-normal m-5 
+      rounded-3xl shadow-lc px-6 py-2 m-5 
+      font-bold text-base leading-normal w-80 font-inter
     `,
-    sizes: {
-      small: 'px-5 py-2 w-36',
-      medium: 'px-6 py-2 w-80',
-      large: 'px-6 py-3 w-100',
-    },
     variants: {
-      solid: `bg-${color}-default hover:bg-${color}`,
-      outline: `border border-solid border-custom-stroke`,
-      blurred: `bg-${color}-default hover:bg-${color} backdrop-blur-2xl`,
+      solid: type === 'primary' ? 'bg-twitter-blue-default hover:bg-twitter-blue-hover' : 'bg-neutral-50 hover:bg-neutral-200',
+      outline: type === 'primary' ? 'border border-solid border-custom-stroke text-twitter-blue-default' : 'border border-solid border-custom-stroke text-neutral-50',
+      icon: type === 'primary' ? 'bg-twitter-blue-default hover:bg-twitter-blue-hover p-3 rounded-full' : 'bg-neutral-50 hover:bg-neutral-200 p-3 rounded-full',
     },
-    textColors: `text-${textColor}`,
+    disabled: isDisabled ? 'opacity-50 cursor-not-allowed' : '',
+    textColor: type === 'primary' ? 'text-neutral-50' : 'text-neutral-1000',
   };
 
-  const sizeClass = styles.sizes[size] || styles.sizes.medium;  // Default size: medium
-  const variantClass = styles.variants[variant] || styles.variants.solid;  // Default variant: solid
-  
+  const variantClass = styles.variants[variant];
+  const disabledClass = styles.disabled;
+  const textColor = styles.textColor;
+
   const classes = `
     ${styles.common}
-    ${sizeClass}
     ${variantClass}
-    ${styles.textColors}
+    ${disabledClass}
+    ${textColor}
   `;
 
   return (
-    <button className={classes}>
-      <div className="text-center">
-        {label}
-      </div>
+    <button className={classes} disabled={isDisabled}>
+      {children}
     </button>
   );
 };
 
-export default Button;
