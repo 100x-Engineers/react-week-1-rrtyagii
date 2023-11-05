@@ -1,10 +1,12 @@
-import LoginMain from "./components/Login/LoginMain";
+import Tab from "./components/Tab/Tab";
 
 export default function App() {
   return (
     <>
     <div className="min-h-screen bg-black"> 
-      <LoginMain />
+      <Tab>
+        For you
+      </Tab>
     </div>
     </>
   ); 
