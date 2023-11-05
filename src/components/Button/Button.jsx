@@ -4,7 +4,7 @@ import React from 'react';
 
 export default function Button ({children, variant = 'solid', type = 'primary', isDisabled = false}) {
   const styles = {
-    common: `inline-flex justify-center items-center rounded-3xl shadow-lc px-6 py-2 m-5 font-bold text-base leading-normal w-80 font-inter`,
+    common: `inline-flex justify-center items-center rounded-3xl shadow-lc px-6 py-2 m-2 font-bold text-base leading-normal w-80 font-inter`,
 
     variants: {
       solid: type === 'primary' ? 'bg-twitter-blue-default hover:bg-twitter-blue-hover sm:hover:bg-twitter-blue-hover md:hover:bg-twitter-blue-hover' : 'bg-neutral-50 hover:bg-neutral-200 sm:hover:bg-neutral-500 md:hover:bg-neutral-500',
