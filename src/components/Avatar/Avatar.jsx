@@ -3,10 +3,9 @@ import React from 'react';
  * 
 */
 
-export default Avatar = ({imageUrl, userName, userHandle, showOrHide})=>{
+export default function Avatar (imageUrl, userName, userHandle, showOrHide, ...rest){
     return(
         <>
-
         </>
     ); 
 }
