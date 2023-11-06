@@ -47,7 +47,9 @@ export default function ProfileHeader({props}){
             <Button 
                 type="secondary" 
                 variant="outline" 
-                width="w-32"
+                width="w-36"
+                gap="gap-2.5"
+                position="absolute top-40 right-4"
             >
                 Edit Profile
             </Button>
