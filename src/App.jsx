@@ -1,13 +1,13 @@
-import Tab from "./components/Tab/Tab";
+import TabList from "./components/Tab/TweetLists";
 
 export default function App() {
   return (
     <>
     <div className="min-h-screen bg-black"> 
-      <Tab>
-        For you
-      </Tab>
+      <TabList />
     </div>
     </>
   ); 
 }
+
+// className="min-h-screen bg-black"
