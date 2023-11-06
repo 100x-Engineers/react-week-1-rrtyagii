@@ -1,6 +1,6 @@
 import LoginHeader from "./LoginHeader";
 import Button from "../Button/Button";
-import Divider from "../Divider/Divider";
+import Divider from "./Divider";
 
 import React from 'react'
 
