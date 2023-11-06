@@ -13,7 +13,7 @@ export default function Avatar({
   const imageClasses = `${rest.size || 'w-20 h-20'} ${rest.borderRadius || 'rounded-full'} ${rest.borderClasses || 'border-4 border-neutral-1000'} bg-cover bg-no-repeat bg-custom-gray overflow-hidden`;
 
   return (
-    <section className={`flex ${containerClasses} gap-1 ${rest.className || ''}`}>
+    <section className={`flex ${containerClasses} ${rest.className || ''}`}>
 
       <figure className={imageClasses}>
         <img className={rest.size || 'w-20 h-20'} src={imageUrl} alt={`${userHandle} avatar`} />
