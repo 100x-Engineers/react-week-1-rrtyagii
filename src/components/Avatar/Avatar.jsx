@@ -30,6 +30,12 @@ export default function Avatar({
           {`@${userHandle}`}
         </div>
       )}
+
+      {rest.postedAt && (
+        <div className={`font-inter text-[0.9375rem] font-normal leading-normal text-neutral-500 ${isVertical ? '' : 'ml-2'}`}>
+          {` • ${rest.postedAt}`}
+        </div>
+      )}
     </section>
   );
 }
