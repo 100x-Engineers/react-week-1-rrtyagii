@@ -9,7 +9,6 @@ export default function Tab({ tabName, activeTab, onClick }) {
     tabName === activeTab ? 'visible' : 'invisible'
   } mt-4`;
 
-  // Handle the click event
   const handleClick = () => {
     onClick(tabName);
   };

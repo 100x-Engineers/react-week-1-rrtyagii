@@ -1,4 +1,3 @@
-import LoginHeader from "./LoginHeader";
 import Button from "../Button/Button";
 import Divider from "./Divider";
 
@@ -8,7 +7,6 @@ export default function LoginMain() {
 
   return (
     <>
-      <LoginHeader />
       <article className="flex flex-col items-center gap-10 flex-shrink-0 px-7 mt-44">
         
         <section className="felx flex-col items-start gap-3 self-stretch">

@@ -19,13 +19,13 @@ export default function Avatar({
         <img className={rest.size || 'w-20 h-20'} src={imageUrl} alt={`${userHandle} avatar`} />
       </figure>
 
-      {userName && (
+      {showNameAndHandle && (
         <div className={`font-inter text-xl text-neutral-50 leading-normal font-bold ${isVertical ? '' : 'ml-2'}`}>
           {userName}
         </div>
       )}
 
-      {userHandle && (
+      {showNameAndHandle && (
         <div className={`font-inter text-[0.9375rem] font-normal leading-normal text-neutral-500 ${isVertical ? '' : 'ml-2'}`}>
           {`@${userHandle}`}
         </div>

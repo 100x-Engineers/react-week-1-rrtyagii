@@ -1,13 +1,59 @@
-import UserAvatar from "./images/user-avatar.svg"
-import ProfileHeader from "./components/Profile-Header/ProfileHeader";
-import UserBackground from "./images/profile-cover.svg"; 
+import Onboarding from "./components/OnboardingComponent/Onboarding";
 
 export default function App() {
   return (
     <>
-    <div className="min-h-screen bg-black"> 
+      <div className="min-h-screen bg-black">
+        <Onboarding />
+      </div>
+    </>
+  ); 
+}
 
-      <ProfileHeader 
+// import UserAvatar from "./images/user-avatar.svg"
+// import ProfileHeader from "./components/Profile-Header/ProfileHeader";
+// import UserBackground from "./images/profile-cover.svg"; 
+// import Post from "./components/TweetPost/Post";
+// import Button from "./components/Button/Button";
+// import CreatePost from "./components/CreatePost/CreatePost";
+// import PageHeader from "./components/PageHeader/PageHeader.jsx";
+
+
+      {/* <CreatePost
+        imageUrl={UserAvatar}
+        userName="Aarya"
+        userHandle="Lovely"
+      /> */}
+
+      // <div className="min-h-screen bg-black"> 
+      //   <Input type="email">
+      //     Email
+      //   </Input>
+      // </div>
+
+      {/* <Post 
+        meta={{
+          comments: 1, reposts:3, likes:4, views:123
+        }}
+        post={{
+          id : 1, 
+          text : `An error occurred during a connection to twitter.com. PR_CONNECT_RESET_ERROR\n
+
+          \nError code: PR_CONNECT_RESET_ERROR\n
+          
+          \nThe page you are trying to view cannot be shown because the authenticity of the received data could not be verified.
+          \nPlease contact the website owners to inform them of this problem.`, 
+          postedAt : "02/23/2023", 
+          postedBy: { 
+            userid : 1235, 
+            userName : "jakaf", 
+            userFullName : "Jakallope",
+            userImage: UserAvatar
+          }
+        }}
+      /> */}
+
+      {/* <ProfileHeader 
         props={{
           userBackground: UserBackground, // assuming this is a variable
           userImage: UserAvatar, // assuming this is a variable
@@ -19,8 +65,4 @@ export default function App() {
           following: "213",
           followers: "118",
         }}
-      />
-    </div>
-    </>
-  ); 
-}
+      /> */}

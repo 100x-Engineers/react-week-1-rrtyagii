@@ -31,7 +31,6 @@ export default {
         "searchbar-fill": "#212327", 
         "card-fill": "#16181c",
         "success": "#00be74", 
-        "error": "#8b141a", 
         "neutral-50": "#f9f9f9", 
         "neutral-100": "#f4f4f4", 
         "neutral-200": "#e4e4e4", 
