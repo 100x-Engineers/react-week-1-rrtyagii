@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Logo100 from "../../images/login-100.svg"; 
-import LogoX from "../../images/login-group-27162.svg"
-import Close from "../../images/create-account-1-signup-close.svg";
-import Back from "../../images/profile-edit-1-arrow-left.svg";
+import Logo100 from "../../assets/login-100.svg"; 
+import LogoX from "../../assets/login-group-27162.svg"
+import Close from "../../assets/create-account-1-signup-close.svg";
+import Back from "../../assets/profile-edit-1-arrow-left.svg";
 
 function CloseButton({onClick}){
   return (

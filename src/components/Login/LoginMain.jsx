@@ -25,7 +25,9 @@ export default function LoginMain() {
         <Divider text="or" orientation="horizontal"/>
 
         <section className="flex flex-col items-start gap-5 self-stretch">
-          <div className="text-neutral-50 font-inter text-base font-normal leading-4">Already have an account?</div>
+          <div className="text-neutral-50 font-inter text-base font-normal leading-4">
+            Already have an account?
+          </div>
         </section>
 
         <Button type="primary" variant="outline">
