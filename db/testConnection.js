@@ -1,4 +1,4 @@
-const db = require("./models/index.cjs");
+const db = require("./models/index.js");
 
     (async ()=>{
         try {

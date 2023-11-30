@@ -10,10 +10,14 @@ module.exports = {
         type: Sequelize.BIGINT
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(60),
+        unique: true,
+        allowNull: false
       },
       email: {
         type: Sequelize.STRING(200),
+        unique: true,
+        allowNull: false
       },
       email_verified_at: {
         allowNull: true,
@@ -21,22 +25,27 @@ module.exports = {
       },
       display_name: {
         type: Sequelize.STRING(100),
+        allowNull: false,
       },
-      DOB: {
-        type: Sequelize.DATE
+      dateOfBirth: {
+        type: Sequelize.DATE,
+        allowNull: true,
       },
       passwordHash: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(600),
+        allowNull: false,
       },
       following: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       follower: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
       bio: {
         allowNull:true,
-        type: Sequelize.TEXT(160),
+        type: Sequelize.STRING(160),
       },
       location: {
         allowNull:true,
@@ -44,7 +53,7 @@ module.exports = {
       },
       bio_link: {
         allowNull: true,
-        type: Sequelize.STRING
+        type: Sequelize.STRING(150),
       },
       profile_picture_url: {
         allowNull: true,

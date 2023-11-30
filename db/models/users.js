@@ -18,12 +18,13 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     email_verified_at: DataTypes.TIME,
     display_name: DataTypes.STRING,
-    bio: DataTypes.TEXT,
-    DOB: DataTypes.DATE,
+    bio: DataTypes.STRING,
+    dateOfBirth: DataTypes.DATE,
     passwordHash: DataTypes.STRING,
     following: DataTypes.INTEGER,
     follower: DataTypes.INTEGER,
-    biolink: DataTypes.STRING,
+    bio_link: DataTypes.STRING,
+    location: DataTypes.STRING,
     profile_picture_url: DataTypes.STRING,
     cover_picture_url: DataTypes.STRING
   }, {

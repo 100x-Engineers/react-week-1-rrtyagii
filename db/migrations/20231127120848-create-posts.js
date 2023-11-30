@@ -11,34 +11,51 @@ module.exports = {
       },
       user_id: {
         type: Sequelize.BIGINT,
+        allowNull: false, 
         references:{
           model: 'Users', 
           key: 'id'
         }
       },
       content: {
-        type: Sequelize.TEXT(280),
+        type: Sequelize.STRING(280),
+        allowNull: false, 
       },
       posted_at: {
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        allowNull: false, 
       },
       repost_id: {
-        type: Sequelize.BIGINT
+        type: Sequelize.BIGINT,
+        allowNull: true, 
+        references:{
+          model: 'Posts', 
+          key: 'id',
+        }
       },
       reply_to_post_id: {
-        type: Sequelize.BIGINT
+        type: Sequelize.BIGINT,
+        allowNull: true, 
+        references:{
+          model: 'Posts', 
+          key: 'id',
+        }
       },
       likes_count: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true, 
       },
       replies: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true, 
       },
       views: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true, 
       },
       repost_count: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        allowNull: true, 
       },
       createdAt: {
         allowNull: false,

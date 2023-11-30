@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Posts.init({
     user_id: DataTypes.BIGINT,
-    content: DataTypes.TEXT,
+    content: DataTypes.STRING,
     posted_at: DataTypes.DATE,
     repost_id: DataTypes.BIGINT,
     reply_to_post_id: DataTypes.BIGINT,
