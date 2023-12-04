@@ -1,6 +1,5 @@
-import LoginMain from '../components/Login/LoginMain'; 
-import PageHeader from '../components/PageHeader/PageHeader';
-
+import LoginMain from '../../components/Login/LoginMain'; 
+import PageHeader from '../../components/Page Header/PageHeader';
 
 import React from 'react'
 

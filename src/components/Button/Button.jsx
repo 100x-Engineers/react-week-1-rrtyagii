@@ -8,7 +8,9 @@ export default function Button ({children, variant = 'solid', type = 'primary', 
 
     variants: {
       solid: type === 'primary' ? 'bg-twitter-blue-default hover:bg-twitter-blue-hover sm:hover:bg-twitter-blue-hover md:hover:bg-twitter-blue-hover' : 'bg-neutral-50 hover:bg-neutral-200 sm:hover:bg-neutral-500 md:hover:bg-neutral-500',
+
       outline: type === 'primary' ? 'border border-solid border-custom-stroke text-twitter-blue-default' : 'border border-solid border-custom-stroke text-neutral-50',
+      
       icon: type === 'primary' ? 'bg-twitter-blue-default hover:bg-twitter-blue-hover sm:hover:bg-twitter-blue-hover md:hover:bg-twitter-blue-hover p-3 rounded-full' : 'bg-neutral-50 hover:bg-neutral-200 p-3 rounded-full',
     },
 

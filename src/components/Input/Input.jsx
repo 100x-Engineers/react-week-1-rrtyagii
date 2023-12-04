@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react' 
 import SuccessLogo from '../../assets/tick-circle.svg'; 
 import PasswordEye from '../../assets/eye.svg'; 
 import HideEye from '../../assets/hide-eye.svg'; 
@@ -21,7 +21,7 @@ export default function Input({ children, type, inputValue, onChange, validation
         </legend>
         <div className="flex justify-around">
           <input 
-            className="w-full peer font-normal font-inter text-xl text-neutral-100 border-none bg-transparent focus: outline-none placeholder:text-neutral-500" 
+            className="w-full peer font-normal font-inter text text-neutral-100 border-none bg-transparent focus: outline-none placeholder:text-neutral-500" 
             type={showPassword ? 'text' : type}
             placeholder={children}
             onChange={onChange}

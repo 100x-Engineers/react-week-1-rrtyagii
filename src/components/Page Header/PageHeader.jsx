@@ -28,7 +28,7 @@ function BackButton({onClick}){
 function LoginHeader(){
   return( 
   <>
-  <section id="100x-group" className="flex px-4 py-3 justify-center items-center gap-0">
+  <section id="100x-group" className="flex py-3 justify-center items-center gap-0">
     <img className="w-[2.56013rem] h-[1.12663rem] fill-neutral-50" src={Logo100} alt={100} />
     <img src={LogoX} alt="x" />
   </section>
@@ -39,18 +39,21 @@ function LoginHeader(){
 export default function PageHeader({
   children, 
   showBackButton=false,
-   ...rest})
+  showCloseButton=false,
+  loginPage=false,
+   ...rest
+  })
 {
-  const baseClasses = `flex flex-row px-4 py-3 items-center`;
-  const buttonClasses = `${!rest.buttonChildren ? "justify-start gap-4" : "justify-between"}` ; 
-  const textClasses = `font-inter text-[0.9375rem] font-bold leading-normal text-neutral-50`; 
+  const baseClasses = `flex flex-row py-3 items-center`;
+  const buttonClasses = `${!rest.buttonChildren ? "justify-start gap-10" : "justify-between"}` ; 
+  const textClasses = `font-inter text-[0.9375rem] font-bold leading-normal text-neutral-50 justify-start gap-4`; 
 
   return (
     <>
-      {rest.loginPage && <LoginHeader />}
-      {!rest.loginPage && (
-        <div className={`${baseClasses} ${!rest.buttonChildren ? textClasses : buttonClasses}`}>
-          {rest.showCloseButton && <CloseButton />}
+      {loginPage && <LoginHeader />}
+      {!loginPage && (
+        <div className={`${baseClasses} ${!rest.buttonChildren ? textClasses : buttonClasses} ${rest}`}>
+          {showCloseButton && <CloseButton />}
           {showBackButton && <BackButton />}
           {children}
         </div>
