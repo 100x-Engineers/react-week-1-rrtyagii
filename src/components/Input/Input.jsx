@@ -3,7 +3,13 @@ import SuccessLogo from '../../assets/tick-circle.svg';
 import PasswordEye from '../../assets/eye.svg'; 
 import HideEye from '../../assets/hide-eye.svg'; 
 
-export default function Input({ children, type, inputValue, onChange, validationStatus, ...rest}) {
+export default function Input({ 
+  children, 
+  type, 
+  inputValue, 
+  onChange, 
+  validationStatus=false, 
+  ...rest}) {
   const [showPassword, setShowPassword] = useState(false); 
   const elementPadding = `${rest.padding ? rest.padding : ""}`; 
   const elementWidth = `${rest.width ? rest.width : "w-64"}`; 
@@ -21,7 +27,7 @@ export default function Input({ children, type, inputValue, onChange, validation
         </legend>
         <div className="flex justify-around">
           <input 
-            className="w-full peer font-normal font-inter text text-neutral-100 border-none bg-transparent focus: outline-none placeholder:text-neutral-500" 
+            className="w-full peer font-normal font-inter text text-neutral-100 border-none bg-transparent focus: outline-none placeholder:text-neutral-500 appearance-none" 
             type={showPassword ? 'text' : type}
             placeholder={children}
             onChange={onChange}
@@ -41,7 +47,7 @@ export default function Input({ children, type, inputValue, onChange, validation
             </>
             )
           }
-          
+
           {validationStatus && (<img src={SuccessLogo} alt="Success" className="w-7 h-7" />)}
         </div>
       </fieldset>

@@ -4,7 +4,7 @@ import Button from '../../components/Button/Button';
 import DatePicker from '../../components/DatePicker/DatePicker';
 import PageHeader from '../../components/Page Header/PageHeader';
 
-export default function Onboarding() {
+export default function SignUpStep1() {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -20,10 +20,11 @@ export default function Onboarding() {
             Step 1 of 4
         </PageHeader>
 
-        <form className="flex flex-col gap-5 self-stretch items-start"> 
-            <h3 className="font-inter font-bold text-2xl leading-normal">
+        <h3 className="flex flex-col pt-5 self-stretch items-start font-inter font-bold text-2xl leading-normal">
                 Create your account
-            </h3>
+        </h3>
+
+        <form className="flex flex-col gap-5 self-stretch items-start"> 
 
             <Input type="text" onChange={()=>{}} value={formData.name} width="w-72" >
                 Name
@@ -40,16 +41,19 @@ export default function Onboarding() {
                 <p className="text-secondary-gray font-inter text-sm font-normal leading-normal">
                     This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
                 </p>
+                <DatePicker />
             </div>
 
-            <DatePicker />
-
-            <div className="flex flex-col items-center gap-3 flex-grow flex-shrink-0 basis-0 mt-auto pt-28">
-                <Button type='secondary' variant='solid'>
+            <div className="flex flex-col items-center gap-3 flex-grow flex-shrink-0 basis-0 pt-56">
+                <Button 
+                    type='secondary' 
+                    variant='solid'
+                    width="w-72"
+                    padding="px-6 py-3"
+                >
                     Create account 
                 </Button>
             </div>
-
         </form>
     </section>
     </>
