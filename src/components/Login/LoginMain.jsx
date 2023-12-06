@@ -7,7 +7,7 @@ export default function LoginMain() {
 
   return (
     <>
-      <article className="flex flex-col items-center gap-10 flex-shrink-0 px-7 mt-44">
+      <article className="flex flex-col items-center gap-10 flex-shrink-0 px-7 mt-28">
         
         <section className="felx flex-col items-start gap-3 self-stretch">
           <div className=" text-neutral-50 font-inter font-extrabold leading-normal text-3xl self-stretch">

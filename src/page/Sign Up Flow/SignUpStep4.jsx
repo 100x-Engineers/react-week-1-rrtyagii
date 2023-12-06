@@ -6,12 +6,12 @@ import Button from '../../components/Button/Button';
 export default function SignUpStep4() {
     return (
     <>
-    <section className="flex flex-col items-start gap-3 shrink-0 pt-0 px-1.24338rem pb-5 rounded-2xl bg-neutral-1000 text-neutral-50">
-        <PageHeader showBackButton={false} loginPage={false} showCloseButton={true}>
+    <section className="flex flex-col items-start gap-y-4 shrink-0 pt-0 px-1.24338rem pb-5 rounded-2xl bg-neutral-1000 text-neutral-50">
+        <PageHeader showCloseButton={true}>
             Step 4 of 4
         </PageHeader>
 
-        <div className="flex flex-col items-start gap-2 self-stretch">
+        <div className="pt-3 flex flex-col items-start gap-2 self-stretch">
             <h3 className="font-inter font-bold text-2xl leading-normal">
                 You'll need a password
             </h3>

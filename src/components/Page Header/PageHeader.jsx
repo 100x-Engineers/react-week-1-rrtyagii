@@ -1,63 +1,63 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Logo100 from "../../assets/login-100.svg"; 
-import LogoX from "../../assets/login-group-27162.svg"
-import Close from "../../assets/create-account-1-signup-close.svg";
-import Back from "../../assets/profile-edit-1-arrow-left.svg";
+import React from 'react';
+import PropTypes from 'prop-types';
+import CloseIcon from '../../assets/create-account-1-signup-close.svg';
+import BackIcon from '../../assets/profile-edit-1-arrow-left.svg';
+import Logo100 from '../../assets/login-100.svg'; 
+import LogoX from '../../assets/login-group-27162.svg';
 
-function CloseButton({onClick}){
+function IconButton({ icon, alt, onClick }) {
   return (
-    <>
-    <button onClick={onClick}>
-      <img className="w-6 h-6" src={Close} alt="close"/>
+    <button onClick={onClick} className="z-10">
+      <img src={icon} alt={alt} className="w-6 h-6" />
     </button>
-    </>
-  )
-}
-
-function BackButton({onClick}){
-  return (
-    <>
-    <button onClick={onClick}>
-      <img className="w-6 h-6" src={Back} alt="close"/>
-    </button>
-    </>
-  )
+  );
 }
 
 function LoginHeader(){
   return( 
   <>
-  <section id="100x-group" className="flex py-3 justify-center items-center gap-0">
+  <div id="100x-group" className="flex gap-0 mx-auto">
     <img className="w-[2.56013rem] h-[1.12663rem] fill-neutral-50" src={Logo100} alt={100} />
     <img src={LogoX} alt="x" />
-  </section>
+  </div>
   </>
   ); 
 }
 
 export default function PageHeader({
-  children, 
-  showBackButton=false,
-  showCloseButton=false,
-  loginPage=false,
-   ...rest
-  })
-{
-  const baseClasses = `flex flex-row py-3 items-center`;
-  const buttonClasses = `${!rest.buttonChildren ? "justify-start gap-10" : "justify-between"}` ; 
-  const textClasses = `font-inter text-[0.9375rem] font-bold leading-normal text-neutral-50 justify-start gap-4`; 
-
+  children,
+  showBackButton = false,
+  onBackClick,
+  showCloseButton = false,
+  onCloseClick,
+  actionButton,
+  loginPage = false
+}) {
   return (
-    <>
-      {loginPage && <LoginHeader />}
-      {!loginPage && (
-        <div className={`${baseClasses} ${!rest.buttonChildren ? textClasses : buttonClasses} ${rest}`}>
-          {showCloseButton && <CloseButton />}
-          {showBackButton && <BackButton />}
-          {children}
-        </div>
+    <section className={`flex items-center justify-between w-full py-3 bg-black text-white ${loginPage ? 'justify-center' : ''}`}>
+
+      {loginPage ? (
+        <>
+        <LoginHeader />
+        </>
+      ) : (
+        <>
+          {showBackButton && (
+            <IconButton icon={BackIcon} alt="Back" onClick={onBackClick} />
+          )}
+          {showCloseButton && (
+            <IconButton icon={CloseIcon} alt="Close" onClick={onCloseClick} />
+          )}
+
+          <div className="flex-grow">
+            <div className="w-full text-center">{children}</div>
+          </div>
+
+          {actionButton || (
+            <div className="w-6 h-6"></div> // Spacer to keep the title centered when there's no action button
+          )}
+        </>
       )}
-    </>
-  ); 
-};
+    </section>
+  );
+}

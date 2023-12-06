@@ -1,8 +1,8 @@
 import React from 'react'
-import CommentIcon from '../../images/comment.svg'; 
-import LikeIcon from '../../images/heart.svg';
-import RepostIcon from '../../images/retweet.svg';
-import ShareIcon from '../../images/share.svg';
+import CommentIcon from '../../assets/comment.svg'; 
+import LikeIcon from '../../assets/heart.svg';
+import RepostIcon from '../../assets/retweet.svg';
+import ShareIcon from '../../assets/share.svg';
 
 function TweetStats({comments, reposts, likes, views }) {
   return (

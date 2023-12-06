@@ -4,7 +4,7 @@ export default function Avatar({
   imageUrl,
   userName,
   userHandle,
-  showNameAndHandle,
+  showNameAndHandle=true,
   orientation = 'vertical',
   ...rest
 }) {

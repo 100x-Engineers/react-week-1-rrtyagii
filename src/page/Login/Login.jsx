@@ -7,7 +7,7 @@ export default function Login() {
   return (
     <>
     <div className='flex flex-col border-x border-solid border-neutral-500 w-24.375rem'>
-      <PageHeader showBackButton={false} loginPage={true}/>
+      <PageHeader loginPage={true}/>
       <LoginMain />
     </div>
     </>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Avatar from '../Avatar/Avatar';
-import TweetStats from './TweetStats';
+import TweetStats from './TweetStat';
 
 // Post: {
 //     meta: {comments, reposts, likes, views}
@@ -21,12 +21,12 @@ function Post({meta, post}) {
             userName={postedBy.userName}
             userHandle={postedBy.userName}
             showNameAndHandle={true}
-            size="w-16 h-16"
+            size="w-12 h-12"
             orientation = 'horizontal'
             postedAt = {postedAt}
             />    
 
-            <article className="flex flex-col items-start gap-2 flex-grow basis-0 shrink-0 pl-[4.5rem]">
+            <article className="flex flex-col items-start gap-2 flex-grow basis-0 shrink-0 pl-[3.45rem]">
                 <p className="font-inter text-base leading-normal font-normal text-neutral-50">
                     {text}
                 </p>
