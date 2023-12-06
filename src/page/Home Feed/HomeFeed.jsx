@@ -2,7 +2,7 @@ import PageHeader from '../../components/Page Header/PageHeader'; // Path: src/c
 import Avatar from '../../components/Avatar/Avatar'; // Path: src/components/Avatar/Avatar.jsx
 import TweetLists from '../../components/Tab/TweetLists'; // Path: src/components/Tab/TweetLists.jsx 
 import Post from '../../components/TweetPost/Post'; // Path: src/components/TweetPost/Post.jsx w-24.375rem
-import NavigationTab from '../../components/Navigation/navigationTab';
+import NavigationTab from '../../components/Navigation Tab/Navigation_Tab'; // Path: src/components/Navigation/NavigationTab.jsx
 
 import Logo100 from '../../assets/login-100.svg'; 
 import LogoX from '../../assets/login-group-27162.svg';
