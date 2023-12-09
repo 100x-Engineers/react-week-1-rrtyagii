@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Avatar({
   imageUrl,
@@ -39,3 +40,12 @@ export default function Avatar({
     </section>
   );
 }
+
+Avatar.propTypes = {
+  imageUrl: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  userHandle: PropTypes.string.isRequired,
+  showNameAndHandle: PropTypes.bool,
+  orientation: PropTypes.string,
+  rest: PropTypes.object,
+};

@@ -1,7 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Avatar from '../Avatar/Avatar';
+import PageHeader from '../Page Header/PageHeader';
+import Button from '../Button/Button';
+import PropTypes from 'prop-types';
 
-export default function CreatePost({ imageUrl, userName, userHandle }) {
+export default function CreatePost({ userid, userFullName, userName, imageUrl, ...props }) {
   const [postText, setPostText] = useState('');
   const textAreaRef = useRef(null);
 
@@ -32,11 +35,26 @@ export default function CreatePost({ imageUrl, userName, userHandle }) {
 
   return (
     <div className='flex flex-col p-4 bg-black text-neutral-50' style={{ height: '100vh' }}>
+      <PageHeader 
+            showBackButton={true} 
+            onBackClick={()=>{}} 
+            actionButton={
+                <Button
+                type="primary" 
+                variant="solid"
+                width="w-32"
+                onClick={()=>{console.log("Save button clicked")}}
+            >
+                Post
+            </Button>
+            }
+        ></PageHeader>
+
       <div className='flex items-start'>
         <Avatar 
           imageUrl={imageUrl}
+          userFullName={userFullName}
           userName={userName}
-          userHandle={userHandle}
           showNameAndHandle={false}
           size="w-12 h-12"
         />
@@ -46,7 +64,7 @@ export default function CreatePost({ imageUrl, userName, userHandle }) {
             className='w-full bg-transparent border-none outline-none resize-none'
             name="tweetInput" 
             id="compose-tweet"
-            placeholder="What's happening?"
+            placeholder="What's happening?!"
             value={postText}
             onChange={handleChange}
             style={{ padding: 0 }}
@@ -69,4 +87,12 @@ export default function CreatePost({ imageUrl, userName, userHandle }) {
       </div>
     </div>
   );
-}
+}; 
+
+CreatePost.propTypes = {
+  userid: PropTypes.number.isRequired,
+  userFullName: PropTypes.string.isRequired,
+  userName: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  props: PropTypes.object,
+};

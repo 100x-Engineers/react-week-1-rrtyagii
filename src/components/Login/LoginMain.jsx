@@ -1,7 +1,8 @@
 import Button from "../Button/Button";
 import Divider from "./Divider";
 
-import React from 'react'
+import PropTypes from 'prop-types';
+
 
 export default function LoginMain() {
 
@@ -35,5 +36,5 @@ export default function LoginMain() {
         </Button>
       </article>
     </>  
-  ); 
-}; 
+  );
+};

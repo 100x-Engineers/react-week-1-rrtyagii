@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import Avatar from '../Avatar/Avatar';
 import TweetStats from './TweetStat';
 
+import PropTypes from 'prop-types';
+
 // Post: {
 //     meta: {comments, reposts, likes, views}
 //     post: {id, text, postedAt, postedBy}
 // }
 
-function Post({meta, post}) {
+export default function Post({meta, post}) {
     const {comments, reposts, likes, views} = meta; 
     const {id, text, postedAt, postedBy} = post
     
@@ -42,7 +44,10 @@ function Post({meta, post}) {
             </article>
         </section>
     </>
-  )
-}
+  );
+};
 
-export default Post
+Post.propTypes = {
+    meta: PropTypes.object,
+    post: PropTypes.object
+};

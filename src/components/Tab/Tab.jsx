@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default function Tab({ tabName, activeTab, onClick }) {
   const buttonClasses = `relative font-inter text-base leading-normal font-medium text-neutral-500 group ${
@@ -19,4 +20,10 @@ export default function Tab({ tabName, activeTab, onClick }) {
       <div className={activeButtonClass} />
     </button>
   );
-}
+};
+
+Tab.propTypes = {
+  tabName: PropTypes.string,
+  activeTab: PropTypes.string,
+  onClick: PropTypes.func,
+};

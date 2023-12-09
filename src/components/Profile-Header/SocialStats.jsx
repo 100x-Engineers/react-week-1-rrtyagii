@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
-const SocialStats = ({ number, text }) => {
+export const SocialStats = ({ number, text }) => {
   return (
    <>
      <div className="flex items-center gap-1">
@@ -13,7 +14,10 @@ const SocialStats = ({ number, text }) => {
         </div>
     </div>
    </>
-  )
-}
+  ); 
+};
 
-export default SocialStats
+SocialStats.propTypes = {
+  number: PropTypes.string,
+  text: PropTypes.string,
+};

@@ -3,6 +3,7 @@ import Avatar from '../../components/Avatar/Avatar'; // Path: src/components/Ava
 import TweetLists from '../../components/Tab/TweetLists'; // Path: src/components/Tab/TweetLists.jsx 
 import Post from '../../components/TweetPost/Post'; // Path: src/components/TweetPost/Post.jsx w-24.375rem
 import NavigationTab from '../../components/Navigation Tab/Navigation_Tab'; // Path: src/components/Navigation/NavigationTab.jsx
+import AddContent from '../../components/Add Content/AddContent'; // Path: src/components/Add Content/AddContent.jsx
 
 import Logo100 from '../../assets/login-100.svg'; 
 import LogoX from '../../assets/login-group-27162.svg';
@@ -26,6 +27,7 @@ export default function HomeFeed() {
     <section className="flex flex-col h-screen">
 
         <NavigationTab/>
+        <AddContent onClick={()=>{}}/>
 
         <article className='flex flex-col overflow-y-auto pb-16 scrollbar-hide'>
 
@@ -44,7 +46,7 @@ export default function HomeFeed() {
                 <TweetLists/>
             </div>
 
-            <div className="flex flex-col w-24.375rem px-[0.0625] items-start relative">
+            <div className="flex flex-col w-full px-[0.0625] items-start relative">
                 <Post 
                     meta={{
                     comments: 1, reposts:3, likes:4, views:123
@@ -115,8 +117,3 @@ export default function HomeFeed() {
         //     </button>
         // </section>
         {/* Add Content Button */}
-        // <section className="inline-flex p-4 w-16 h-16 items-start gap-[0.625rem] rounded-[2rem] bg-twitter-blue-default shadow-lc absolute top-[46.5rem] right-5">
-        //     <figure className="flex w-8 h-8 justify-center items-center">
-        //     <img src="/public/images/content-content-add.svg" alt="Add Content" />
-        //     </figure>
-        // </section>

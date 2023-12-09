@@ -1,9 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+
 import CloseIcon from '../../assets/create-account-1-signup-close.svg';
 import BackIcon from '../../assets/profile-edit-1-arrow-left.svg';
 import Logo100 from '../../assets/login-100.svg'; 
 import LogoX from '../../assets/login-group-27162.svg';
+
+import PropTypes from 'prop-types';
 
 function IconButton({ icon, alt, onClick }) {
   return (
@@ -31,33 +33,32 @@ export default function PageHeader({
   showCloseButton = false,
   onCloseClick,
   actionButton,
-  loginPage = false
+  loginPage = false,
 }) {
   return (
-    <section className={`flex items-center justify-between w-full py-3 bg-black text-white ${loginPage ? 'justify-center' : ''}`}>
+    <section className={`flex items-center ${loginPage ? 'justify-center' : 'justify-between'} w-full py-3 bg-black text-white font-inter font-bold`}>
 
-      {loginPage ? (
-        <>
-        <LoginHeader />
-        </>
-      ) : (
-        <>
-          {showBackButton && (
-            <IconButton icon={BackIcon} alt="Back" onClick={onBackClick} />
-          )}
-          {showCloseButton && (
-            <IconButton icon={CloseIcon} alt="Close" onClick={onCloseClick} />
-          )}
+      {loginPage && <LoginHeader/>}
+      <>
+        {showBackButton && (<IconButton icon={BackIcon} alt="Back" onClick={onBackClick} />)}
+        {showCloseButton && (<IconButton icon={CloseIcon} alt="Close" onClick={onCloseClick} />)}
 
-          <div className="flex-grow">
-            <div className="w-full text-center">{children}</div>
-          </div>
+        <div className="flex-grow">
+          <div className="w-full text-center">{children}</div>
+        </div>
 
-          {actionButton || (
-            <div className="w-6 h-6"></div> // Spacer to keep the title centered when there's no action button
-          )}
-        </>
-      )}
+        {actionButton}
+      </>
     </section>
   );
-}
+};
+
+PageHeader.propTypes = {
+  children: PropTypes.node,
+  showBackButton: PropTypes.bool,
+  onBackClick: PropTypes.func,
+  showCloseButton: PropTypes.bool,
+  onCloseClick: PropTypes.func,
+  actionButton: PropTypes.node,
+  loginPage: PropTypes.bool,
+};

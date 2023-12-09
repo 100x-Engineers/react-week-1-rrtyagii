@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 export const MONTHS = [
     'January',
@@ -93,5 +94,9 @@ export default function DatePicker() {
       </fieldset>
     </section>
    </>
-  )
-}
+  );
+};
+
+DatePicker.propTypes = {
+  handleInputChange: PropTypes.func,
+};

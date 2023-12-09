@@ -1,6 +1,7 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
-function LinksWithIcon({ imageUrl, altText, linkText }) {
+export function LinksWithIcon({ imageUrl, altText, linkText }) {
   return (
     <>
     <div className="flex items-center gap-1">
@@ -14,7 +15,10 @@ function LinksWithIcon({ imageUrl, altText, linkText }) {
     </div>
     </>
   ); 
-}
+};
 
-export default LinksWithIcon
-  
+LinksWithIcon.propTypes = {
+  imageUrl: PropTypes.string,
+  altText: PropTypes.string,
+  linkText: PropTypes.string,
+};

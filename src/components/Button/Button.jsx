@@ -1,6 +1,5 @@
 import React from 'react';
-
-/*** */
+import PropTypes from 'prop-types';
 
 export default function Button ({children, variant = 'solid', type = 'primary', isDisabled = false, ...rest}) {
   const styles = {
@@ -30,5 +29,13 @@ export default function Button ({children, variant = 'solid', type = 'primary', 
       {children}
     </button>
   );
+};
+
+Button.propTypes = {
+  children: PropTypes.node.isRequired,
+  variant: PropTypes.string,
+  type: PropTypes.string,
+  isDisabled: PropTypes.bool,
+  rest: PropTypes.object,
 };
 

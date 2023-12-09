@@ -4,7 +4,9 @@ import LikeIcon from '../../assets/heart.svg';
 import RepostIcon from '../../assets/retweet.svg';
 import ShareIcon from '../../assets/share.svg';
 
-function TweetStats({comments, reposts, likes, views }) {
+import PropTypes from 'prop-types';
+
+export default function TweetStats({comments, reposts, likes, views }) {
   return (
     <>
         <div className="flex justify-center items-center gap-[0.3125rem]">
@@ -49,7 +51,12 @@ function TweetStats({comments, reposts, likes, views }) {
             </button>
         </div>
     </>
-  )
-}
+  );
+};
 
-export default TweetStats
+TweetStats.propTypes = {
+    comments: PropTypes.number,
+    reposts: PropTypes.number,
+    likes: PropTypes.number,
+    views: PropTypes.number
+};

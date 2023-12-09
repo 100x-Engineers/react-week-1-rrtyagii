@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Tab from './Tab';
+import PropTypes from 'prop-types';
 
 export default function TabList({ initialActiveTab = "For You" }) {
   const [currentActive, setCurrentActive] = useState(initialActiveTab);
@@ -14,4 +15,8 @@ export default function TabList({ initialActiveTab = "For You" }) {
       <Tab tabName="Following" activeTab={currentActive} onClick={handleOnClick} />
     </nav>
   );
-}
+};
+
+TabList.propTypes = {
+  initialActiveTab: PropTypes.string,
+}; 

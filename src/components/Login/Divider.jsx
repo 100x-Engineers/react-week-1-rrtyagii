@@ -1,5 +1,7 @@
 import React from 'react'; 
 
+import PropTypes from 'prop-types';
+
 export default function Divider({text, orientation = 'horizontal', color="bg-neutral-700"}) {
     const isHorizontal = orientation === 'horizontal';
     const orientationClass = isHorizontal ? 'flex-row' : 'flex-col'; 
@@ -17,4 +19,10 @@ export default function Divider({text, orientation = 'horizontal', color="bg-neu
             <div className={`${orientationLayout} ${color}`}></div>
         </div>
     );
+};
+
+Divider.propTypes = {
+    text: PropTypes.string,
+    orientation: PropTypes.oneOf(['horizontal', 'vertical']),
+    color: PropTypes.string
 };
