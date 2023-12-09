@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 // }
 
 export default function Post({meta, post}) {
-    const {comments, reposts, likes, views} = meta; 
+    const {comments, reposts, likes, views, isLiked, isRetweeted} = meta; 
     const {id, text, postedAt, postedBy} = post
     
     const [tweets, setTweets] = useState([]); 

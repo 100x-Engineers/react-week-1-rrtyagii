@@ -25,7 +25,7 @@ export default function Button ({children, variant = 'solid', type = 'primary', 
   const classes = `${styles.common} ${variantClass} ${disabledClass} ${textColor}`;
   
   return (
-    <button className={classes} disabled={isDisabled}>
+    <button className={classes} disabled={isDisabled} {...rest}>
       {children}
     </button>
   );

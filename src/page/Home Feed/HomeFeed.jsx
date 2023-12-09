@@ -9,6 +9,9 @@ import Logo100 from '../../assets/login-100.svg';
 import LogoX from '../../assets/login-group-27162.svg';
 import avatar from '../../assets/tweet-1-user-avatar.svg';
 
+import { InitialUserContext } from '../../contexts/userContext';
+import { useContext } from 'react';
+
 const LoginHeader = () => {
     return( 
     <>
@@ -22,8 +25,12 @@ const LoginHeader = () => {
 
 
 export default function HomeFeed() {
+    const userData = useContext(InitialUserContext);
+    const form = userData.form;
+    console.log('form in homeFeed:', form);
   return (
     <>   
+    <article className='flex flex-col flex-grow bg-neutral-1000 min-h-screen mx-auto max-w-lg border-x border-x-neutral-600'>
     <section className="flex flex-col h-screen">
 
         <NavigationTab/>
@@ -107,6 +114,7 @@ export default function HomeFeed() {
             </div>
         </article>
     </section>
+   </article>
     </>
   )
 }

@@ -43,8 +43,8 @@ export default function Avatar({
 
 Avatar.propTypes = {
   imageUrl: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
-  userHandle: PropTypes.string.isRequired,
+  userName: PropTypes.string,
+  userHandle: PropTypes.string,
   showNameAndHandle: PropTypes.bool,
   orientation: PropTypes.string,
   rest: PropTypes.object,

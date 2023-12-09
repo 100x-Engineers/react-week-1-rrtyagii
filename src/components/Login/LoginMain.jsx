@@ -1,7 +1,8 @@
+import { URLs } from "../../Constants";
 import Button from "../Button/Button";
 import Divider from "./Divider";
 
-import PropTypes from 'prop-types';
+import { Link } from "react-router-dom";
 
 
 export default function LoginMain() {
@@ -19,9 +20,11 @@ export default function LoginMain() {
           </div>
         </section>
 
-        <Button type="secondary">
-          Create a new Account
-        </Button>
+        <Link to={URLs.signUpStep1}>
+          <Button type="secondary">
+            Create a new Account
+          </Button>
+        </Link>
 
         <Divider text="or" orientation="horizontal"/>
 
@@ -31,9 +34,9 @@ export default function LoginMain() {
           </div>
         </section>
 
-        <Button type="primary" variant="outline">
-          Sign up
-        </Button>
+          <Button type="primary" variant="outline">
+            Sign up
+          </Button> 
       </article>
     </>  
   );

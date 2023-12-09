@@ -90,7 +90,7 @@ export default function CreatePost({ userid, userFullName, userName, imageUrl, .
 }; 
 
 CreatePost.propTypes = {
-  userid: PropTypes.number.isRequired,
+  userid: PropTypes.string.isRequired,
   userFullName: PropTypes.string.isRequired,
   userName: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,

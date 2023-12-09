@@ -26,7 +26,7 @@ const YEARS = Array.from(
 
 // grid w-full grid-cols-4 gap-3
 
-export default function DatePicker() {
+export default function DatePicker({ handleInputChange }) {
     return (
    <>
     <section className="flex w-full gap-2">
@@ -38,8 +38,9 @@ export default function DatePicker() {
         </legend>
 
         <select
-          onChange={(e) => {
-            handleInputChange('month', +e.target.value); //++ to convert string to +ve integer
+          id='month'
+          onChange={(event) => {
+            handleInputChange(event);
           }}
           placeholder="Month"
           defaultValue={MONTHS.indexOf('January')}
@@ -61,8 +62,9 @@ export default function DatePicker() {
           <div className="px-1">Day</div>
         </legend>
         <select
-          onChange={(e) => {
-            handleInputChange('day', +e.target.value);
+          id='day'
+          onChange={(event) => {
+            handleInputChange(event);
           }}
           className="w-full bg-neutral-1000 text-neutral-50  placeholder:text-neutral-500 focus:outline-none"
         >
@@ -77,8 +79,9 @@ export default function DatePicker() {
           <div className="px-1">Year</div>
         </legend>
         <select
-          onChange={(e) => {
-            handleInputChange('year', +e.target.value);
+          id='year'
+          onChange={(event) => {
+            handleInputChange(event);
           }}
           defaultValue={currentYear}
           className="w-full bg-neutral-1000 text-neutral-50 placeholder:text-neutral-500 focus:outline-none"

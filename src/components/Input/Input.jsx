@@ -12,7 +12,9 @@ export default function Input({
   onChange, 
   validationStatus=false, 
   ...rest}) {
+    
   const [showPassword, setShowPassword] = useState(false); 
+  
   const elementPadding = `${rest.padding ? rest.padding : ""}`; 
   const elementWidth = `${rest.width ? rest.width : "w-64"}`; 
   const size = `${elementWidth} ${elementPadding}`; 
@@ -29,6 +31,7 @@ export default function Input({
         </legend>
         <div className="flex justify-around">
           <input 
+            id={rest.id} 
             className="w-full peer font-normal font-inter text text-neutral-100 border-none bg-transparent focus: outline-none placeholder:text-neutral-500 appearance-none " 
             type={showPassword ? 'text' : type}
             placeholder={children}
@@ -38,7 +41,8 @@ export default function Input({
 
           {type==="password" && !validationStatus && (
             <>
-            <button 
+            <button
+            type="button"
             className="group aspect-square h-max w-max rounded-full bg-transparent hover:brightness-125"
             onClick={()=>{setShowPassword(!showPassword); }}
             >
