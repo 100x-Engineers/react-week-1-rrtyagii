@@ -30,7 +30,7 @@ export default function SignUpStep4() {
     <>
     <article className='flex flex-col flex-grow bg-neutral-1000 min-h-screen mx-auto max-w-lg border-x border-x-neutral-600'>
         <section className=" gap-y-4 shrink-0 pt-0 px-1.24338rem pb-5 rounded-2xl text-neutral-50 mx-auto">
-        <PageHeader showCloseButton={true}>
+        <PageHeader showBackButton={true} onBackClick={onBackClick}>
             Step 4 of 4
         </PageHeader>
 

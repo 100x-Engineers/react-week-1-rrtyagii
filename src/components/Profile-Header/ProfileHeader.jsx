@@ -17,8 +17,19 @@ export default function ProfileHeader({
     bioLink,
     joinedAt,
     following,
-    followers
+    followers,
+    onEditButtonClick,
 }){
+    function getDomainFromURL(url) {
+        try {
+            const hostname = new URL(url).hostname;
+            return hostname.replace(/^www\./, '');
+        } catch (error) {
+            console.error("Invalid URL", error);
+            return url;
+        }
+    }
+    
     return (
         <>
         <section className="flex-col">
@@ -32,7 +43,7 @@ export default function ProfileHeader({
                 <Avatar 
                     imageUrl={userImage}
                     userName={userFullName}
-                    userHandle={userName.substring(1)}
+                    userHandle={userName}
                     orientation="vertical"
                     borderRadius ="rounded-12.5rem"
                     size="w-20 h-20"
@@ -46,6 +57,7 @@ export default function ProfileHeader({
             width="w-36"
             gap="gap-2.5"
             position="relative -top-[13%] left-[68%]"
+            onClick={onEditButtonClick}
         >
             Edit Profile
         </Button>
@@ -60,7 +72,7 @@ export default function ProfileHeader({
                 <LinkWithIcon
                     imageUrl={BioLinkImage}
                     altText={`${userName} bio link`}
-                    linkText={bioLink}
+                    linkText={getDomainFromURL(bioLink)}
                 />
                 )}
 
