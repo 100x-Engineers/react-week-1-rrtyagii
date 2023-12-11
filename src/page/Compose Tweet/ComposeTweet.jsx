@@ -1,104 +1,79 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { URLs } from '../../Constants';
 import { TweetContext } from '../../contexts/tweetContext';
+import { InitialUserContext } from '../../contexts/userContext';
+import { URLs } from '../../Constants';
 
-
-import avatar from '../../assets/tweet-1-user-avatar.svg';
-import Avatar from '../../components/Avatar/Avatar';
+import CreatePost from '../../components/Create Post/CreatePost';
 import PageHeader from '../../components/Page Header/PageHeader';
 import Button from '../../components/Button/Button';
+import avatar from '../../assets/tweet-1-user-avatar.svg';
 import PropTypes from 'prop-types';
 
-export default function ComposeTweet({ userId, userFullName,userName,imageUrl, ...props}) {
-    const navigate = useNavigate();
-    const [postText, setPostText] = useState('');
-    const textAreaRef = useRef(null);
+export default function ComposeTweet() {
+  const navigate = useNavigate();   
+  const { form, setForm } = useContext(InitialUserContext);
+  const {userTweets, setUserTweets} = useContext(TweetContext);
 
-    const handleChange = (event) => {
-        event.preventDefault(); 
-        setPostText(event.target.value);
+  const [postText, setPostText] = useState('');
+
+  const handlePostClick = ()=>{
+    const newTweet = {
+      id: Date.now().toString(), 
+      text: postText, 
+      postedAt: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      postedBy: {
+        userId: form.id,
+        userName: form.username, 
+        userFullName: form.name,
+        userImage: form.avatar || avatar
+      },
+      comments: 0, 
+      reposts: 0, 
+      likes: 0, 
+      views: 0,
+      isLiked: false, 
+      isRetweeted: false,
     };
+    setUserTweets(prevTweets => [newTweet, ...prevTweets]);
+    setPostText('');
 
-    const maxCharacters = 280;
+    console.log("Tweeted!")
+    console.log(newTweet)
 
-    useEffect(() => {
-        const textArea = textAreaRef.current;
-        if (textArea) {
-        textArea.style.height = 'auto';
-        textArea.style.height = textArea.scrollHeight + 'px';
+    navigate(URLs.feed);
+  }
+
+  const user = {
+    userid: form.id,
+    userName: form.username,
+    userFullName: form.name,
+    userImage: form.avatar || avatar
+  };
+
+  return (
+    <div className='flex flex-col flex-grow min-h-screen mx-auto max-w-lg border-x border-x-neutral-600 text-neutral-50 p-4'>
+      <PageHeader 
+        showBackButton={true} 
+        onBackClick={() => navigate(-1)}
+        actionButton={
+          <Button
+            type="primary" 
+            variant="solid"
+            width="w-40"
+            onClick={handlePostClick}
+            disabled={!postText.trim() || postText.length > 280 || postText.trim().length === 0}
+          >
+            Post
+          </Button>
         }
-    }, [postText]);
-
-    const getHighlightedText = (text, maxChars) => {
-        if (text.length <= maxChars) {
-        return { before: text, after: '' };
-        }
-
-        return { before: text.substring(0, maxChars), after: text.substring(maxChars) };
-    };
-
-    const { before, after } = getHighlightedText(postText, maxCharacters);
-
-    return (
-        <div className='flex flex-col flex-grow min-h-screen mx-auto max-w-lg border-x border-x-neutral-600 text-neutral-50'>
-            <div className='p-4 mb-16'>
-                <PageHeader 
-                    showBackButton={true} 
-                    onBackClick={()=>{navigate(-1)}}
-                    actionButton={
-                        <Button
-                        type="primary" 
-                        variant="solid"
-                        width="w-40"
-                        onClick={()=>{console.log("Post button clicked")}} //TODO: updates the tweet to tweet context
-                    >
-                        Post
-                    </Button>
-                    }
-                ></PageHeader>
-                
-                <div className='flex items-start'>
-                    <Avatar 
-                    imageUrl={avatar} //TODO: change to imageUrl that we get from userContext
-                    showNameAndHandle={false}
-                    size="w-12 h-12"
-                    />
-
-                    <div className='relative flex-1 ml-4 '>
-                        <textarea 
-                            ref={textAreaRef}
-                            className='w-full bg-transparent border-none outline-none resize-none'
-                            name="tweetInput" 
-                            id="compose-tweet"
-                            placeholder="What's happening?!"
-                            value={postText}
-                            onChange={handleChange}
-                            style={{ padding: 0 }}
-                        />
-
-                        <div aria-hidden="true" className='absolute top-0 left-0 w-full overflow-hidden pointer-events-none'style={{ whiteSpace: 'pre-wrap', wordWrap: 'break-word' }}>
-                            <span>{before}</span>
-                            <span className='bg-red-500'>{after}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div className='flex px-6 border-t border-t-neutral-500 pt-2'>
-                <div className={`${postText.length > maxCharacters ? "text-red-error" : "text-neutral-500"}`}>
-                    {postText.length}/{maxCharacters}
-                </div>
-            </div>
-        </div>
-    );
-}; 
-
-ComposeTweet.propTypes = {
-  userId: PropTypes.string,
-  userFullName: PropTypes.string,
-  userName: PropTypes.string,
-  imageUrl: PropTypes.string,
-  props: PropTypes.object,
+      />
+      <CreatePost 
+        user={user}
+        postText={postText}
+        setPostText={setPostText}
+      />
+    </div>
+  );
 };

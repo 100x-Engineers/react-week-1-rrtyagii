@@ -11,7 +11,7 @@ const defaultTweets = [
   {
     id: '1234567890', 
     text: "Hello World from TweetContext", 
-    postedAt: '02/23/2023', 
+    postedAt: 'Dec 1, 2023', 
     postedBy: {
       userId: 'allAuover1',
       userName: "jakaf1", 
@@ -28,7 +28,7 @@ const defaultTweets = [
   {
     id: '1234567891', 
     text: "Hello World from TweetContext again", 
-    postedAt: '02/23/2023', 
+    postedAt: 'Feb 23, 2023', 
     postedBy: {
       userId: 'allAuover2',
       userName: "jakaf2", 
