@@ -11,8 +11,11 @@ import SignUpStep1 from "./page/Sign Up Flow/SignUpStep1";
 import SignUpStep2 from "./page/Sign Up Flow/SignUpStep2";
 import SignUpStep3 from "./page/Sign Up Flow/SignUpStep3";
 import SignUpStep4 from "./page/Sign Up Flow/SignUpStep4";
+import UserProfile from "./page/Profile/UserProfile";
 
 import { InitialUserProvider } from "./contexts/userContext";
+import { TweetContextProvider } from "./contexts/tweetContext";
+import ComposeTweet from "./page/Compose Tweet/ComposeTweet";
 
 const BrowserRouter = createBrowserRouter([
   {
@@ -44,6 +47,16 @@ const BrowserRouter = createBrowserRouter([
     path: URLs.feed,
     element: <HomeFeed />,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: URLs.profile,
+    element: <UserProfile />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: URLs.compose, 
+    element: <ComposeTweet/>,
+    errorElement: <ErrorPage />,
   }
 ]);
 
@@ -51,7 +64,9 @@ export default function App() {
 
   return (
     <InitialUserProvider>
-      <RouterProvider router={BrowserRouter} />
+      <TweetContextProvider>
+        <RouterProvider router={BrowserRouter} />
+      </TweetContextProvider>
     </InitialUserProvider>
   );
 }

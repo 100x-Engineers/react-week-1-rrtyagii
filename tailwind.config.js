@@ -48,6 +48,7 @@ export default {
         'custom-stroke': 'var(--stroke, rgba(29, 155, 240, 0.24))',
         'custom-gray': 'lightgray',
         'red-error' : "#8B141A",
+        'like-fill': '#F4245E',
         'edit-photos-bg':'rgba(0, 0, 0, 0.60)',
       },
       width:{

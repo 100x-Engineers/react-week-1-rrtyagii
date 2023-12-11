@@ -9,8 +9,10 @@ import Logo100 from '../../assets/login-100.svg';
 import LogoX from '../../assets/login-group-27162.svg';
 import avatar from '../../assets/tweet-1-user-avatar.svg';
 
-import { InitialUserContext } from '../../contexts/userContext';
 import { useContext } from 'react';
+import { TweetContext } from '../../contexts/tweetContext';
+import { Link, useNavigate} from 'react-router-dom';
+import { URLs } from '../../Constants';
 
 const LoginHeader = () => {
     return( 
@@ -23,25 +25,27 @@ const LoginHeader = () => {
     ); 
 }; 
 
-
 export default function HomeFeed() {
-    const userData = useContext(InitialUserContext);
-    const form = userData.form;
-    console.log('form in homeFeed:', form);
+    const navigate = useNavigate();
+    const {userTweets, handleLike, handleRetweet} = useContext(TweetContext);
+
+    function handleAddContentClick() {
+        navigate(URLs.compose);
+    }
+
   return (
     <>   
-    <article className='flex flex-col flex-grow bg-neutral-1000 min-h-screen mx-auto max-w-lg border-x border-x-neutral-600'>
-    <section className="flex flex-col h-screen">
-
+    <div className='flex flex-col flex-grow min-h-screen mx-auto max-w-lg border-x border-x-neutral-600'>
+        <section className="flex flex-col h-screen">
         <NavigationTab/>
-        <AddContent onClick={()=>{}}/>
+        <AddContent onClick={handleAddContentClick}/>
 
-        <article className='flex flex-col overflow-y-auto pb-16 scrollbar-hide'>
+        <div className='flex flex-col overflow-y-auto pb-16 scrollbar-hide'>
 
             <div className='flex mt-5 border-b border-b-neutral-700'>
-                <div className='ml-4'>
+                <Link className='ml-4' to={URLs.profile}>
                     <Avatar imageUrl={avatar} showNameAndHandle={false} size="w-11 h-11"/>
-                </div>
+                </Link>
                 <div className='flex mx-auto'>
                     <PageHeader>
                         <LoginHeader/>
@@ -54,74 +58,36 @@ export default function HomeFeed() {
             </div>
 
             <div className="flex flex-col w-full px-[0.0625] items-start relative">
-                <Post 
-                    meta={{
-                    comments: 1, reposts:3, likes:4, views:123
-                    }}
-                    post={{
-                        id : 1, 
-                        text : `An error occurred during a connection to twitter.com. PR_CONNECT_RESET_ERROR\n
-
-                        \nError code: PR_CONNECT_RESET_ERROR\n
-                        
-                        \nThe page you are trying to view cannot be shown because the authenticity of the received data could not be verified.
-                        \nPlease contact the website owners to inform them of this problem.`, 
-                        postedAt : "02/23/2023", 
-                        postedBy: { 
-                            userid : 1235, 
-                            userName : "jakaf", 
-                            userFullName : "Jakallope",
-                            userImage: avatar
-                        }   
-                    }}
-                />
-
-                <Post 
-                    meta={{
-                    comments: 1, reposts:3, likes:4, views:123
-                    }}
-                    post={{
-                        id : 1, 
-                        text : `An error occurred during a connection to twitter.com. PR_CONNECT_RESET_ERROR\n
-                        \nThe page you are trying to view cannot be shown because the authenticity of the received data could not be verified.`, 
-                        postedAt : "02/23/2023", 
-                        postedBy: { 
-                            userid : 1235, 
-                            userName : "jakaf", 
-                            userFullName : "Jakallope",
-                            userImage: avatar
-                        }   
-                    }}
-                />
-
-                <Post 
-                    meta={{
-                    comments: 1, reposts:3, likes:4, views:123
-                    }}
-                    post={{
-                        id : 1, 
-                        text : `An error occurred during a connection to twitter.com. PR_CONNECT_RESET_ERROR\n
-                        \nThe page you are trying to view cannot be shown because the authenticity of the received data could not be verified.`, 
-                        postedAt : "02/23/2023", 
-                        postedBy: { 
-                            userid : 1235, 
-                            userName : "jakaf", 
-                            userFullName : "Jakallope",
-                            userImage: avatar
-                        }   
-                    }}
-                />
+                {
+                    userTweets.map((tweet) => {
+                        const meta = {
+                            comments: tweet.comments, 
+                            reposts: tweet.reposts, 
+                            likes: tweet.likes, 
+                            views: tweet.views,
+                            isLiked: tweet.isLiked,
+                            isRetweeted: tweet.isRetweeted
+                        }; 
+                        const post = {
+                            id: tweet.id, 
+                            text: tweet.text, 
+                            postedAt: tweet.postedAt, 
+                            postedBy: tweet.postedBy
+                        };
+                        return (
+                        <Post 
+                            key={tweet.id}
+                            meta={meta} 
+                            post={post} 
+                            onLike={() => handleLike(tweet.id)}
+                            onRetweet={() => handleRetweet(tweet.id)}
+                        />)
+                    })
+                }
             </div>
-        </article>
+        </div>
     </section>
-   </article>
+   </div>
     </>
-  )
-}
-
-        // <section className="bg-transparent flex py-3 px-8 justify-center items-center gap-[0.625rem] absolute top-[47.5rem] left-[5.625rem] bottom-[16.6875] rounded-[6.25rem] bg-searchbar-fill">
-        //     <button className="text-base leading-normal font-inter font-medium text-neutral-50">
-        //     Copied to clipboard.
-        //     </button>
-        // </section>
-        {/* Add Content Button */}
+  );
+};

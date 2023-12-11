@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
-export function LinksWithIcon({ imageUrl, altText, linkText }) {
+export default function LinksWithIcon({ imageUrl, altText, linkText }) {
   return (
     <>
     <div className="flex items-center gap-1">
@@ -10,7 +11,9 @@ export function LinksWithIcon({ imageUrl, altText, linkText }) {
       </figure>
 
       <div className="text-twitter-blue-default font-Inter font-normal leading-normal text-base">
-        {linkText}
+        <Link to={linkText}>
+          {linkText}
+        </Link>
       </div>
     </div>
     </>

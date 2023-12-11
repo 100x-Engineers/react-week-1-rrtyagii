@@ -15,10 +15,7 @@ export default function Avatar({
 
   return (
     <section className={`flex ${containerClasses} ${rest.className || ''}`}>
-
-      <figure className={imageClasses}>
-        <img className={rest.size || 'w-20 h-20'} src={imageUrl} alt={`${userHandle} avatar`} />
-      </figure>
+        <img className={imageClasses} src={imageUrl} alt={`${userHandle} avatar`} />
 
       {showNameAndHandle && (
         <div className={`font-inter text-xl text-neutral-50 leading-normal font-bold ${isVertical ? '' : 'ml-2'}`}>

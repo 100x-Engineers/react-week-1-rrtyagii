@@ -7,7 +7,7 @@ import Input from '../../components/Input/Input';
 import PageHeader from '../../components/Page Header/PageHeader';
 import Button from '../../components/Button/Button';
 
-const MOCK_VERIFICATION_CODE = '534782';
+const MOCK_VERIFICATION_CODE = '123456';
 
 export default function SignUpStep3() {
     const navigate = useNavigate();

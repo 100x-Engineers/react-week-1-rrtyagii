@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 
-export const SocialStats = ({ number, text }) => {
+export default function SocialStats({ number, text }){
   return (
    <>
      <div className="flex items-center gap-1">
@@ -18,6 +18,6 @@ export const SocialStats = ({ number, text }) => {
 };
 
 SocialStats.propTypes = {
-  number: PropTypes.string,
+  number: PropTypes.number,
   text: PropTypes.string,
 };

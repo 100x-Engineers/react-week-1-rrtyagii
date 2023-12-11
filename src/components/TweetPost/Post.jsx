@@ -9,12 +9,10 @@ import PropTypes from 'prop-types';
 //     post: {id, text, postedAt, postedBy}
 // }
 
-export default function Post({meta, post}) {
+export default function Post({meta, post, onLike, onRetweet}) {
     const {comments, reposts, likes, views, isLiked, isRetweeted} = meta; 
     const {id, text, postedAt, postedBy} = post
-    
-    const [tweets, setTweets] = useState([]); 
-    
+
   return (
     <>
         <section className="flex flex-col px-4 py-2 items-start gap-y-0 self-stretch border-b border-b-neutral-700"> 
@@ -28,17 +26,21 @@ export default function Post({meta, post}) {
             postedAt = {postedAt}
             />    
 
-            <article className="flex flex-col items-start gap-2 flex-grow basis-0 shrink-0 pl-[3.45rem]">
+            <article className="flex flex-col items-start gap-2 flex-grow basis-0 shrink-0 pl-[3.45rem] w-full">
                 <p className="font-inter text-base leading-normal font-normal text-neutral-50">
                     {text}
                 </p>
                 {/* <input type="text" placeholder=" className="w-full max-w-xs font-inter text-base leading-normal font-normal text-neutral-50 bg-transparent focus:none" /> */}
-                <footer className="flex py-3 justify-between items-center self-stretch w-full">
+                <footer className="flex py-3 items-center self-stretch w-full justify-around">
                     <TweetStats 
                         comments={comments}
                         reposts={reposts}
                         likes={likes}
                         views={views}
+                        onLikeClick={onLike}
+                        onRetweetClick={onRetweet}
+                        isLiked={isLiked}
+                        isRetweeted={isRetweeted}
                     />
                 </footer>
             </article>

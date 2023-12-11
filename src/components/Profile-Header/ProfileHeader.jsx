@@ -28,7 +28,7 @@ export default function ProfileHeader({
                     alt="profile-cover"
             />
 
-            <div className="pl-5 absolute top-40">
+            <div className="pl-5 relative -top-12 z-10">
                 <Avatar 
                     imageUrl={userImage}
                     userName={userFullName}
@@ -45,12 +45,12 @@ export default function ProfileHeader({
             variant="outline" 
             width="w-36"
             gap="gap-2.5"
-            position="absolute top-52 end-1/3"
+            position="relative -top-[13%] left-[68%]"
         >
             Edit Profile
         </Button>
 
-        <div className="flex flex-col justify-end items-start gap-1 ml-5 mr-4 mt-28">
+        <div className="flex flex-col justify-end items-start gap-1 ml-5 mr-4 -mt-[6.5rem]">
             <section className="font-Inter text-base font-normal leading-normal text-neutral-50">
                 {bio}
             </section>
