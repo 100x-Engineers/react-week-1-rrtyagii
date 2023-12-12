@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { TweetContext } from '../../contexts/tweetContext';
@@ -13,8 +13,8 @@ import PropTypes from 'prop-types';
 
 export default function ComposeTweet() {
   const navigate = useNavigate();   
-  const { form, setForm } = useContext(InitialUserContext);
-  const {userTweets, setUserTweets} = useContext(TweetContext);
+  const { form } = useContext(InitialUserContext);
+  const { setUserTweets} = useContext(TweetContext);
 
   const [postText, setPostText] = useState('');
 
