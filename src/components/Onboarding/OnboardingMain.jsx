@@ -21,7 +21,10 @@ export default function OnboardingMain() {
         </section>
 
         <Link to={URLs.signUpStep1}>
-          <Button type="secondary">
+          <Button 
+            type="secondary"
+            padding="py-4 px-6"
+          >
             Create a new Account
           </Button>
         </Link>
@@ -34,7 +37,11 @@ export default function OnboardingMain() {
           </div>
         </section>
 
-          <Button type="primary" variant="outline">
+          <Button 
+            type="primary" 
+            variant="outline"
+            padding="py-4 px-6"
+          >
             Sign up
           </Button> 
       </article>

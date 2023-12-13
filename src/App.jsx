@@ -7,6 +7,7 @@ import { URLs } from "./Constants";
 import ErrorPage from "./page/error-pages";
 import HomeFeed from "./page/Home Feed/HomeFeed";
 import OnboardingPage from "./page/Onboarding/OnboardingPage";
+import Login from "./page/Login/LoginPage";
 import SignUpStep1 from "./page/Sign Up Flow/SignUpStep1";
 import SignUpStep2 from "./page/Sign Up Flow/SignUpStep2";
 import SignUpStep3 from "./page/Sign Up Flow/SignUpStep3";
@@ -21,9 +22,14 @@ import ComposeTweet from "./page/Compose Tweet/ComposeTweet";
 const BrowserRouter = createBrowserRouter([
   {
     path: URLs.home,
-    element: <OnboardingPage />,
+    element: <OnboardingPage/>,
     errorElement: <ErrorPage />,
   }, 
+  {
+    path: URLs.login,
+    element: <Login/>,
+    errorElement: <ErrorPage />,
+  },
   {
     path: URLs.signUpStep1,
     element: <SignUpStep1 />,

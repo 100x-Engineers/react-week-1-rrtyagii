@@ -3,7 +3,7 @@ import PageHeader from '../../components/Page Header/PageHeader';
 
 import React from 'react'
 
-export default function Login() {
+export default function OnboardingPage() {
   return (
     <>
     <div className='flex w-full flex-grow bg-neutral-1000 min-h-screen mx-auto max-w-lg flex-col border-x border-x-neutral-600'>
