@@ -6,7 +6,7 @@ import {
 import { URLs } from "./Constants";
 import ErrorPage from "./page/error-pages";
 import HomeFeed from "./page/Home Feed/HomeFeed";
-import Login from "./page/Login/Login";
+import OnboardingPage from "./page/Onboarding/OnboardingPage";
 import SignUpStep1 from "./page/Sign Up Flow/SignUpStep1";
 import SignUpStep2 from "./page/Sign Up Flow/SignUpStep2";
 import SignUpStep3 from "./page/Sign Up Flow/SignUpStep3";
@@ -21,7 +21,7 @@ import ComposeTweet from "./page/Compose Tweet/ComposeTweet";
 const BrowserRouter = createBrowserRouter([
   {
     path: URLs.home,
-    element: <Login />,
+    element: <OnboardingPage />,
     errorElement: <ErrorPage />,
   }, 
   {
