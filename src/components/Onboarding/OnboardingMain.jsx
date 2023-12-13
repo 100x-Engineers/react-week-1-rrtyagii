@@ -5,7 +5,7 @@ import Divider from "./Divider";
 import { Link } from "react-router-dom";
 
 
-export default function LoginMain() {
+export default function OnboardingMain() {
 
   return (
     <>

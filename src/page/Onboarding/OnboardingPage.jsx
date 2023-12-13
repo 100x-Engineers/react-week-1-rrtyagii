@@ -1,4 +1,4 @@
-import LoginMain from '../../components/Login/LoginMain'; 
+import OnboardingMain from '../../components/Onboarding/OnboardingMain'; 
 import PageHeader from '../../components/Page Header/PageHeader';
 
 import React from 'react'
@@ -10,7 +10,7 @@ export default function Login() {
       <div className='mx-auto'>
         <PageHeader loginPage={true}/>
       </div>
-      <LoginMain />
+      <OnboardingMain />
     </div>
     </>
   );
