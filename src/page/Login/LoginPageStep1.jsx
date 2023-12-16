@@ -6,6 +6,7 @@ import Divider from "../../components/Onboarding/Divider";
 import { URLs } from "../../Constants";
 import { Link, useNavigate} from "react-router-dom";
 import { InitialUserContext } from "../../contexts/userContext";
+import {AuthContext, useAuth, AuthProvider} from "../../contexts/AuthContext";
 import { login } from "../../services/authentication";
 
 import Logo100 from '../../assets/login-100.svg'; 
@@ -30,6 +31,7 @@ export default function LoginPageStep1() {
     const [password, setPassword] = useState("");
 
     const { form, setForm } = useContext(InitialUserContext);
+    const { token, setAuthToken } = useAuth();
 
     // const mockEmail = "batman@example.com";
     // const mockPassword = "gothamrocks";
@@ -48,18 +50,17 @@ export default function LoginPageStep1() {
             const response = await login(form.email, form.password);
             
             if (response.ok) {
-                const data = await response.json(); 
+                const data = await response.json();
+                setAuthToken(data.token); 
                 setForm({
                     ...form,
                     email: email,
-                    password: password,
-                    token: data.token,
-                    isLoggedIn: true,
-                
+                    password: password,                
                 })
                 console.log("Login successful", data);
                 navigate(URLs.feed);
             } else {
+                alert("Login failed: please check your email and password");
                 const errorData = await response.json();
                 console.log(`Login failed with status: ${response.status}`, errorData);
             }

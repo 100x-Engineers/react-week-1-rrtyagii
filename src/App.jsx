@@ -1,6 +1,7 @@
 import {
   createBrowserRouter,
   RouterProvider,
+  Navigate,
 } from "react-router-dom";
 
 import { URLs } from "./Constants";
@@ -17,7 +18,23 @@ import EditProfilePage from "./page/Profile/EditProfilePage";
 
 import { InitialUserProvider } from "./contexts/userContext";
 import { TweetContextProvider } from "./contexts/tweetContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import ComposeTweet from "./page/Compose Tweet/ComposeTweet";
+import { useAuth } from "./contexts/AuthContext";
+
+//Public Routes
+// Protected Routes
+
+const ProtectedRoutes = ({children})=>{
+  const {token} = useAuth();
+  return token ? children : <Navigate to={URLs.login}/>;
+}
+
+const ProtectedRoutesSignUp = ({children})=>{
+  const {token} = useAuth();
+  return token ?  children : <Navigate to={URLs.signUpStep1}/>;
+}
+
 
 const BrowserRouter = createBrowserRouter([
   {
@@ -37,37 +54,37 @@ const BrowserRouter = createBrowserRouter([
   },
   {
     path: URLs.signUpStep2,
-    element: <SignUpStep2 />,
+    element: <ProtectedRoutesSignUp><SignUpStep2/></ProtectedRoutesSignUp>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.signUpStep3,
-    element: <SignUpStep3/>,
+    element: <ProtectedRoutes><SignUpStep3/></ProtectedRoutes>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.signUpStep4,
-    element: <SignUpStep4/>,
+    element: <ProtectedRoutes><SignUpStep4/></ProtectedRoutes>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.feed,
-    element: <HomeFeed />,
+    element: <ProtectedRoutes><HomeFeed/></ProtectedRoutes>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.profile,
-    element: <UserProfile />,
+    element: <ProtectedRoutes><UserProfile/></ProtectedRoutes>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.compose, 
-    element: <ComposeTweet/>,
+    element: <ProtectedRoutes><ComposeTweet/></ProtectedRoutes>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.edit,
-    element: <EditProfilePage/>,
+    element: <ProtectedRoutes><EditProfilePage/></ProtectedRoutes>,
     errorElement: <ErrorPage />,
   }
 ]);
@@ -75,10 +92,12 @@ const BrowserRouter = createBrowserRouter([
 export default function App() {
 
   return (
-    <InitialUserProvider>
-      <TweetContextProvider>
-        <RouterProvider router={BrowserRouter} />
-      </TweetContextProvider>
-    </InitialUserProvider>
+    <AuthProvider>
+      <InitialUserProvider>
+        <TweetContextProvider>
+          <RouterProvider router={BrowserRouter} />
+        </TweetContextProvider>
+      </InitialUserProvider>
+    </AuthProvider>
   );
 }

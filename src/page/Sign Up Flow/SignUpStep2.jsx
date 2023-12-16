@@ -63,6 +63,10 @@ export default function SignUpStep2() {
         };
     }, [form.name, form.email, dateOfBirth]);
 
+    const onBackClick = () => {
+        navigate(-1);
+    }
+
     return (
         <>
             <article className='flex flex-col flex-grow bg-neutral-1000 min-h-screen mx-auto max-w-lg border-x border-x-neutral-600'>

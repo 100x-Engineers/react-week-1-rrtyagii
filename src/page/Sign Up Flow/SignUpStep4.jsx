@@ -26,6 +26,10 @@ export default function SignUpStep4() {
         navigate(URLs.feed);
     }
 
+    const onBackClick = () => {
+        navigate(-1);
+    }
+
     return (
     <>
     <article className='flex flex-col flex-grow bg-neutral-1000 min-h-screen mx-auto max-w-lg border-x border-x-neutral-600'>
