@@ -11,7 +11,7 @@ export default function OnboardingMain() {
     <>
       <article className="flex flex-col items-center gap-10 flex-shrink-0 px-7 mt-28">
         
-        <section className="felx flex-col items-start gap-3 self-stretch">
+        <section className="flex flex-col items-start gap-3 self-stretch">
           <div className=" text-neutral-50 font-inter font-extrabold leading-normal text-3xl self-stretch">
           Happening now
           </div>
@@ -37,13 +37,15 @@ export default function OnboardingMain() {
           </div>
         </section>
 
+        <Link to={URLs.login}>
           <Button 
-            type="primary" 
-            variant="outline"
-            padding="py-4 px-6"
-          >
-            Sign up
-          </Button> 
+              type="primary" 
+              variant="outline"
+              padding="py-4 px-6"
+            >
+              Sign up
+            </Button> 
+        </Link>
       </article>
     </>  
   );

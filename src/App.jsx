@@ -7,7 +7,7 @@ import { URLs } from "./Constants";
 import ErrorPage from "./page/error-pages";
 import HomeFeed from "./page/Home Feed/HomeFeed";
 import OnboardingPage from "./page/Onboarding/OnboardingPage";
-import Login from "./page/Login/LoginPage";
+import LoginPageStep1 from "./page/Login/LoginPageStep1";
 import SignUpStep1 from "./page/Sign Up Flow/SignUpStep1";
 import SignUpStep2 from "./page/Sign Up Flow/SignUpStep2";
 import SignUpStep3 from "./page/Sign Up Flow/SignUpStep3";
@@ -27,7 +27,7 @@ const BrowserRouter = createBrowserRouter([
   }, 
   {
     path: URLs.login,
-    element: <Login/>,
+    element: <LoginPageStep1/>,
     errorElement: <ErrorPage />,
   },
   {

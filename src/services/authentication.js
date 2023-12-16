@@ -1,20 +1,16 @@
-const BASE_URL = 'https://one00x-react-backend.onrender.com/'
+const BASE_URL = 'https://one00x-react-backend.onrender.com'
 
 export const login = async (email, password) => {
-    try{
+    try {
         const response = await fetch(`${BASE_URL}/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password }),
-          }); 
-
-          const data = await response.json(); 
-          console.log(data); 
-          return data; 
-
+        });
+        console.log("response in authentication.js", response); 
+        return response;
     } catch (error) {
-        
         console.log(error); 
-        return error;
+        throw error;
     }
-}; 
+};

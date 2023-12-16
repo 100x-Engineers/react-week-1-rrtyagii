@@ -15,6 +15,7 @@ export function InitialUserProvider({children}){
         bioLink: 'https://www.google.com',
         email: '',
         password: '',
+        token: '',
         month: 1,
         day: 1,
         year: 2023,
@@ -22,6 +23,7 @@ export function InitialUserProvider({children}){
         location: 'MD, USA',
         userAvatar: UserAvatar,
         userBackground: UserBackground,
+        isLoggedIn: false,
     });
 
     return (
