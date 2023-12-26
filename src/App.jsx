@@ -21,6 +21,7 @@ import { TweetContextProvider } from "./contexts/tweetContext";
 import { AuthProvider } from "./contexts/AuthContext";
 import ComposeTweet from "./page/Compose Tweet/ComposeTweet";
 import { useAuth } from "./contexts/AuthContext";
+import SignUpStepUsername from "./page/Sign Up Flow/SignUpStepUsername";
 
 //Public Routes
 // Protected Routes
@@ -65,6 +66,11 @@ const BrowserRouter = createBrowserRouter([
   {
     path: URLs.signUpStep4,
     element: <ProtectedRoutes><SignUpStep4/></ProtectedRoutes>,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: URLs.username,
+    element: <ProtectedRoutes><SignUpStepUsername/></ProtectedRoutes>,
     errorElement: <ErrorPage />,
   },
   {

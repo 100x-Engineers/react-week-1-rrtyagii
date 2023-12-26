@@ -9,4 +9,5 @@ export const URLs = Object.freeze({
     signUpStep2: '/sign-up/step-2',
     signUpStep3: '/sign-up/step-3',
     signUpStep4: '/sign-up/step-4',
+    username: '/sign-up/username',
 });
