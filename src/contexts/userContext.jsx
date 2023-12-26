@@ -8,18 +8,17 @@ export const InitialUserContext = createContext();
 
 export function InitialUserProvider({children}){
     const [form, setForm] = useState({
-        id: '31231234',
-        username: 'allAuover',
-        name: 'Rishabh',
-        bio: "Some bio",
-        bioLink: 'https://www.google.com',
+        username: '',
+        name: '',
+        bio: '',
+        bioLink: '',
         email: '',
         password: '',
         month: 1,
         day: 1,
         year: 2023,
-        joinedAt: 'September 2023',
-        location: 'MD, USA',
+        joinedAt: 'December 2023',
+        location: 'Earth',
         userAvatar: UserAvatar,
         userBackground: UserBackground,
     });
