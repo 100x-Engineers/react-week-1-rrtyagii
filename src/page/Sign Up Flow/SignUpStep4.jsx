@@ -23,7 +23,7 @@ export default function SignUpStep4() {
             ...form, 
             password
         });
-        navigate(URLs.feed);
+        navigate(URLs.username);
     }
 
     const onBackClick = () => {
