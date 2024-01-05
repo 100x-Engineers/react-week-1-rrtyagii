@@ -1,16 +1,21 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import Input from '../../components/Input/Input';
 import PageHeader from '../../components/Page Header/PageHeader';
 import Button from '../../components/Button/Button';
 import { InitialUserContext } from '../../contexts/userContext';
 import { URLs } from '../../Constants';
 import { useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import { dateFormat } from '../../utils/date_format';
 
 
 function SignUpStepUsername() {
+
     const navigate = useNavigate();
     const [username, setUserName] = useState('');
     const {form, setForm} = useContext(InitialUserContext);
+
+    const displayDate = dateFormat(form);
 
     const handleUserNameChange = (event) => {
         setUserName(event.target.value);
@@ -22,7 +27,23 @@ function SignUpStepUsername() {
             ...form, 
             username
         });
-        navigate(URLs.feed);
+
+        let response = ''; 
+        axios.post('http://localhost:5050/signup',{
+            user_name: username,
+            password: form.password,
+            email: form.email,
+            display_name: form.name,
+            date_of_birth: displayDate
+        }).then((res) => {
+            console.log(res);
+            response = res
+        }).catch((error) => {
+            console.error(error);
+        })
+
+        alert("navigating to next page")
+        navigate(URLs.feed)
     }
 
     const onBackClick = () => {
