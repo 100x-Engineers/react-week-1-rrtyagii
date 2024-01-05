@@ -5,6 +5,8 @@ import Button from '../../components/Button/Button';
 import { URLs } from '../../Constants';
 import { Link } from 'react-router-dom';
 import { InitialUserContext } from '../../contexts/userContext';
+import { dateFormat } from '../../utils/date_format';
+
 import * as yup from 'yup';
 
 // Yup validation schema
@@ -28,15 +30,10 @@ const validationSchema = yup.object().shape({
 export default function SignUpStep2() {
     const userData = useContext(InitialUserContext);
     const form = userData.form;
-   //console.log('form in step 2:', form);
     const dateOfBirth = new Date(form.year, form.month - 1, form.day);
 
-    const formatDate = (date) => {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return date.toLocaleDateString('en-US', options);
-    };
 
-    const displayDate = formatDate(dateOfBirth);
+    const displayDate = dateFormat(form);
 
     const { nameValid, emailValid, dateOfBirthValid } = useMemo(() => {
         let isValid = { name: false, email: false, dateOfBirth: false };
@@ -44,17 +41,23 @@ export default function SignUpStep2() {
         try {
             validationSchema.validateSyncAt('name', { name: form.name });
             isValid.name = true;
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+        }
 
         try {
             validationSchema.validateSyncAt('email', { email: form.email });
             isValid.email = true;
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+        }
 
         try {
             validationSchema.validateSyncAt('dateOfBirth', { dateOfBirth });
             isValid.dateOfBirth = true;
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+        }
 
         return { 
             nameValid: isValid.name, 

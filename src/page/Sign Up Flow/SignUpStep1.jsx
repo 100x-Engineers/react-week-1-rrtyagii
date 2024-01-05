@@ -23,7 +23,6 @@ export default function SignUpStep1() {
 
     function handleOnSubmit(event){
         event.preventDefault();
-        console.log('input values before setForm :', inputValue);
         setForm(prevform => ({
             ...prevform,
             name: inputValue.name,
@@ -101,6 +100,7 @@ export default function SignUpStep1() {
                         width="w-80"
                         padding="px-6 py-5"
                         isDisabled={inputValue.name === '' || inputValue.email === '' }
+                        onClick = {handleOnSubmit}
                     >
                         Create account 
                         </Button>
