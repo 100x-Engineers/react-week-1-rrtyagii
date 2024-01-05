@@ -10,7 +10,7 @@ export const login = async (email, password) => {
         console.log("response in authentication.js", response); 
         return response;
     } catch (error) {
-        console.log(error); 
+        console.error(error); 
         throw error;
     }
 };
