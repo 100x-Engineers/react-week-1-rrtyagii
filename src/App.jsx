@@ -55,22 +55,22 @@ const BrowserRouter = createBrowserRouter([
   },
   {
     path: URLs.signUpStep2,
-    element: <ProtectedRoutesSignUp><SignUpStep2/></ProtectedRoutesSignUp>,
+    element: <SignUpStep2/>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.signUpStep3,
-    element: <ProtectedRoutes><SignUpStep3/></ProtectedRoutes>,
+    element: <SignUpStep3/>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.signUpStep4,
-    element: <ProtectedRoutes><SignUpStep4/></ProtectedRoutes>,
+    element: <SignUpStep4/>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.username,
-    element: <ProtectedRoutes><SignUpStepUsername/></ProtectedRoutes>,
+    element: <SignUpStepUsername/>,
     errorElement: <ErrorPage />,
   },
   {
