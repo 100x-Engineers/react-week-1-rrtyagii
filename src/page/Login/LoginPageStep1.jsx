@@ -12,6 +12,7 @@ import { login } from "../../services/authentication";
 import Logo100 from '../../assets/login-100.svg'; 
 import LogoX from '../../assets/login-group-27162.svg';
 import Google from "../../assets/google.svg";
+import axios from "axios";
 
 const LoginHeader=()=>{
     return( 
@@ -30,12 +31,6 @@ export default function LoginPageStep1() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const { form, setForm } = useContext(InitialUserContext);
-    const { token, setAuthToken } = useAuth();
-
-    // const mockEmail = "batman@example.com";
-    // const mockPassword = "gothamrocks";
-
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     }
@@ -47,28 +42,19 @@ export default function LoginPageStep1() {
     const handleOnSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await login(form.email, form.password);
+            const response = await axios.post("http://localhost:5050/login", {
+                email: email,
+                password: password,
+            });
             
-            if (response.ok) {
-                const data = await response.json();
-                setAuthToken(data.token); 
-                setForm({
-                    ...form,
-                    email: email,
-                    password: password,                
-                })
-                console.log("Login successful", data);
-                navigate(URLs.feed);
-            } else {
-                alert("Login failed: please check your email and password");
-                const errorData = await response.json();
-                console.log(`Login failed with status: ${response.status}`, errorData);
-            }
+            console.log("Login successful: Response\n", response);
+
+            navigate(URLs.feed);
         } catch (error) {
             console.error("Error during login", error);
+            alert("Login failed: please check your email and password");
         }
     };
-    
     
 
     return(
@@ -132,13 +118,7 @@ export default function LoginPageStep1() {
                             padding="py-3 px-4"
                             width="w-80"
                             isDisabled={email === "" || password === ""}
-                            onClick={() => {
-                                setForm({
-                                    ...form,
-                                    email: email,
-                                    password: password,
-                                });
-                            }}
+                            onClick={handleOnSubmit}
                         >
                             Next
                         </Button>
