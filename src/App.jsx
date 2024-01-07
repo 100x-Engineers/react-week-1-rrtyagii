@@ -26,15 +26,15 @@ import SignUpStepUsername from "./page/Sign Up Flow/SignUpStepUsername";
 //Public Routes
 // Protected Routes
 
-const ProtectedRoutes = ({children})=>{
-  const {token} = useAuth();
-  return token ? children : <Navigate to={URLs.login}/>;
-}
+// const ProtectedRoutes = ({children})=>{
+//   const {token} = useAuth();
+//   return token ? children : <Navigate to={URLs.login}/>;
+// }
 
-const ProtectedRoutesSignUp = ({children})=>{
-  const {token} = useAuth();
-  return token ?  children : <Navigate to={URLs.signUpStep1}/>;
-}
+// const ProtectedRoutesSignUp = ({children})=>{
+//   const {token} = useAuth();
+//   return token ?  children : <Navigate to={URLs.signUpStep1}/>;
+// }
 
 
 const BrowserRouter = createBrowserRouter([
@@ -75,22 +75,22 @@ const BrowserRouter = createBrowserRouter([
   },
   {
     path: URLs.feed,
-    element: <ProtectedRoutes><HomeFeed/></ProtectedRoutes>,
+    element: <HomeFeed/>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.profile,
-    element: <ProtectedRoutes><UserProfile/></ProtectedRoutes>,
+    element: <UserProfile/>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.compose, 
-    element: <ProtectedRoutes><ComposeTweet/></ProtectedRoutes>,
+    element: <ComposeTweet/>,
     errorElement: <ErrorPage />,
   },
   {
     path: URLs.edit,
-    element: <ProtectedRoutes><EditProfilePage/></ProtectedRoutes>,
+    element: <EditProfilePage/>,
     errorElement: <ErrorPage />,
   }
 ]);
