@@ -29,9 +29,8 @@ const validationSchema = yup.object().shape({
 
 export default function SignUpStep2() {
     const userData = useContext(InitialUserContext);
-    const form = userData.form;
+    const form = userData.form;  
     const dateOfBirth = new Date(form.year, form.month - 1, form.day);
-
 
     const displayDate = dateFormat(form);
 
