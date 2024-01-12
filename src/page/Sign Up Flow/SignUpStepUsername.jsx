@@ -44,31 +44,6 @@ function SignUpStepUsername() {
         }
     }
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
-    //     setForm({
-    //         ...form, 
-    //         username
-    //     });
-
-    //     let response = ''; 
-    //     axios.post('http://localhost:5050/signup',{
-    //         user_name: username,
-    //         password: form.password,
-    //         email: form.email,
-    //         display_name: form.name,
-    //         date_of_birth: displayDate
-    //     }).then((res) => {
-    //         console.log(res);
-    //         response = res
-    //     }).catch((error) => {
-    //         console.error(error);
-    //     })
-
-    //     alert("navigating to next page")
-    //     navigate(URLs.feed)
-    // }
-
     const onBackClick = () => {
         navigate(-1);
     }
