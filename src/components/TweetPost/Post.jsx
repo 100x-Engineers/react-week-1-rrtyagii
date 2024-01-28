@@ -4,11 +4,6 @@ import TweetStats from './TweetStat';
 
 import PropTypes from 'prop-types';
 
-// Post: {
-//     meta: {comments, reposts, likes, views}
-//     post: {id, text, postedAt, postedBy}
-// }
-
 export default function Post({meta, post, onLike, onRetweet}) {
     const {comments, reposts, likes, views, isLiked, isRetweeted} = meta; 
     const {id, text, postedAt, postedBy} = post
@@ -17,7 +12,7 @@ export default function Post({meta, post, onLike, onRetweet}) {
     <>
         <section className="flex flex-col px-4 py-2 items-start gap-y-0 self-stretch border-b border-b-neutral-700"> 
             <Avatar 
-            imageUrl={ postedBy.userImage } 
+            imageUrl={postedBy.userImage } 
             userName={postedBy.userName}
             userHandle={postedBy.userName}
             showNameAndHandle={true}
@@ -30,7 +25,6 @@ export default function Post({meta, post, onLike, onRetweet}) {
                 <p className="font-inter text-base leading-normal font-normal text-neutral-50">
                     {text}
                 </p>
-                {/* <input type="text" placeholder=" className="w-full max-w-xs font-inter text-base leading-normal font-normal text-neutral-50 bg-transparent focus:none" /> */}
                 <footer className="flex py-3 items-center self-stretch w-full justify-around">
                     <TweetStats 
                         comments={comments}
